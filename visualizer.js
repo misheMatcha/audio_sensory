@@ -11,3 +11,16 @@ const visualizeAudio = url => {
     .then(arrayBuffer => audioContext.decodeAudioData(arrayBuffer))
     .then(audioBuffer => visualizeAudio(audioBuffer))
 };
+
+const filterData = audioBuffer => {
+  const rawData = audioBuffer.getChannelData(0);
+  const samples = 70;
+  const blockSize = Math.floor(rawData.length / samples);
+  const filteredData = [];
+  for(let i = 0; i < samples; i++){
+    filteredData.push(rawData[i * blockSize]);
+  }
+  return filteredData
+}
+
+console.log(filterData(visualizeAudio(url)))
