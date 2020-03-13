@@ -17,6 +17,8 @@ body{
 }
   #canvas{
     border: 1px solid red;
+    width: 1000px;
+    height: 1000px;
   }
 
 .prof-links{

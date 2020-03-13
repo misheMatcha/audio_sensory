@@ -6,32 +6,28 @@
   <title>listen-lizer</title>
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="index.css">
+  <script type="application/javascript" src="app.js"></script>
 </head>
 <body>
   <div class="player-container">
-    <div class="player-play">play</div>
-    <div class="player-stop">stop</div>
-    <audio>
-      <source src="https://audio-viz.s3-us-west-1.amazonaws.com/pornograffiti_the-day.mp3" type="audio/mp3">
+    <button class="player-play" onclick="handlePlay()">play</button>
+    <button class="player-stop" onclick="handlePause()">stop</button>
+    <audio id="player">
+      <source src="pornograffiti_the-day.mp3">
     </audio>
   </div>
   <div class="visualizer">
     <canvas id="canvas"></canvas>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script type="application/javascript" src="visualizer.js"></script>
   </div>
   <div class="prof-links">
     <ul>
       <li class="prof-links-li"><a href="https://github.com/misheMatcha" target="blank">
-        <!-- <img src="LI-In-Bug.png"> -->
         github
       </a></li>
       <li class="prof-links-li"><a href="https://www.linkedin.com/in/mishevong/" target="blank">
-        <!-- <img src="LI-In-Bug.png"> -->
         linkedin
       </a></li>
       <li class="prof-links-li"><a href="mailto:mishe.vong@gmail.com">
-        <!-- <img src="LI-In-Bug.png"> -->
         email
       </a></li>
     </ul>
