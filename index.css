@@ -3,13 +3,21 @@ body{
 }
 
 .player-container{
-  border: 1px solid red;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  /* width: 100px; */
 }
-  .player-play{
+  .play-btn{
     border: 1px solid red;
+    width: 100px;
+    height: 100px;
   }
-  .player-stop{
+  .pause-btn{
     border: 1px solid red;
+    width: 100px;
+    height: 100px;
   }
 
 .visualizer{

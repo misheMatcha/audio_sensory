@@ -1,35 +1,36 @@
-window.onload = function(){
-  var audio,
-      audioContext,
-      analyser,
-      source,
-      frequencyArray;
+var audio,
+    audioContext,
+    analyser,
+    source;
 
+window.onload = function(){
   function init(){
     setup();
-    if(audioContext.state === "suspended"){
-      audioContext.resume();
-    }
+    setupConnect();
   }
-  
-  function setup(){
-    audio = new Audio("pornograffiti_the-day.mp3");
-    audioContext = audioContext || new AudioContext();
-    analyser = audioContext.createAnalyser();
-    source = audioContext.createMediaElementSource(audio)
-  }
-  
-  document.getElementsByName("player-container")[0].addEventListener("click", init());
 
-  function handlePlay() {
+  function setup(){
+    audio = new Audio("pornograffiti_the-day.mp3")
+    audioContext = audioContext || new AudioContext();
+    analyser = analyser || audioContext.createAnalyser();
+    source = audioContext.createMediaElementSource(audio);
+  }
+
+  function setupConnect(){
+    source.connect(analyser);
+    analyser.connect(audioContext.destination);
+  }
+
+  function handlePlay(){
     audio.play();
   }
-  function handlePause() {
+  function handlePause(){
     audio.pause();
   }
+  
+  document.getElementsByClassName("player-container")[0].addEventListener("click", init());
+  document.getElementsByClassName("play-btn")[0].addEventListener("click", handlePlay);
+  document.getElementsByClassName("pause-btn")[0].addEventListener("click", handlePause);
 
-  console.log(source)
-
-  document.getElementsByName("play-button")[0].addEventListener("click", handlePlay)
-  document.getElementsByName("pause-button")[0].addEventListener("click", handlePause)
+  console.log(audio)
 }
