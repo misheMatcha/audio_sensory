@@ -2,6 +2,12 @@ body{
   background-color: #e8b923;
 }
 
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .player-container{
   border: 1px solid blue;
   display: flex;
@@ -19,14 +25,26 @@ body{
     width: 100px;
     height: 100px;
   }
+  .vol-up-btn{
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+  }
+  .vol-down-btn{
+    border: 1px solid red;
+    width: 100px;
+    height: 100px;
+  }
 
 .visualizer{
   border: 1px solid red;
+  display: flex;
+
 }
   #canvas{
     border: 1px solid red;
-    width: 1000px;
-    height: 1000px;
+    width: 750px;
+    height: 750px;
   }
 
 .prof-links{
