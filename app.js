@@ -6,6 +6,7 @@ window.onload = function(){
       canvasCtx,
       buffer,
       dataArray,
+      freq,
       source;
 
   function init(){
@@ -61,51 +62,34 @@ window.onload = function(){
   function visualizer(){
     canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
     analyser.getByteTimeDomainData(dataArray);
-    // x = 0;
-    for(var i = 0; i < dataArray.length; i++){
-      var point = dataArray[i];
-      var randX = Math.floor(Math.random() * 750) + 1;
-      var randY = Math.floor(Math.random() * 750) + 1;
-      var key = i % 2 === 0 ? 2 : i % 3 === 0 ? 3 : i % 4 === 0 ? 4 : i % 5 === 0 ? 5 : i % 6 === 0 ? 6 : i % 7 === 0 ? 7 : i % 8 === 0 ? 8 : i % 9 === 0 ? 9 : false;
+    var count = 100;
 
-      switch (key) {
-        // case 2:
-        //   drawVisuals(point, i + 2, i + 4,);
-        //   break;
-        case 3:
-          drawVisuals(point, i + 3, i + 6, 120);
-          break;
-        case 4:
-          drawVisuals(point, i + 4, i + 8, 160);
-          break;
-        case 5:
-          drawVisuals(point, i + 5, i + 10, 180);
-          break;
-        case 6:
-          drawVisuals(point, i + 6, i + 10, 200);
-          break;
-        case 7:
-          drawVisuals(point, i + 7, i + 10, 210);
-          break;
-        case 8:
-          drawVisuals(point, i + 8, i + 10, 220);
-          break;
-        case 9:
-          drawVisuals(point, i + 9, i + 10, 230);
-          break;
+    for(var i = 0; i < dataArray.length; i++){
+      freq = dataArray[i];
+      var canX = canvas.width/2;
+      var canY = canvas.height/2;
+      if(count <= 450){
+        if(i % 2 === 0){
+          drawVisuals(freq, canX, canY, count += 20, "red", 1)
+          drawVisuals(freq, canX, canY, count += 20, "white", 1.5)
+        }
+      }else{
+        drawVisuals(freq + 3, canX, canY, count += 20, "blue", 1.3)
+        drawVisuals(freq + 3, canX, canY, count += 20, "purple", 1.7)
       }
+
     }
     requestAnimationFrame(visualizer);
   }
   
-  function drawVisuals(point, x, y, size){
+  function drawVisuals(freq, x, y, size, color, strokeSize){
     canvasCtx.beginPath();
-    canvasCtx.arc(x, y, Math.abs(point-size), 0, Math.PI*2);
-    // canvasCtx.fill()
+    canvasCtx.arc(x, y, Math.abs(freq-size), 0, Math.PI*2);
+    canvasCtx.strokeStyle = color;
+    canvasCtx.fillStyle = color;
+    // canvasCtx.fill();
+    canvasCtx.lineWidth = 1;
     canvasCtx.stroke()
-    canvasCtx.shadowColor = "blue"
-    canvasCtx.fillStyle = "blue"
-    canvasCtx.lineWidth = 2;
   }
 
   document.getElementsByClassName("player-container")[0].addEventListener("click", init());
