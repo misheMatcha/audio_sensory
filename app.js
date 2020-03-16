@@ -1,23 +1,35 @@
-let analyser,
-    audio,
-    audioContext,
-    distortion,
-    source;
+window.onload = function(){
+  var audio,
+      audioContext,
+      analyser,
+      source,
+      frequencyArray;
 
-audio = new Audio("pornograffiti_the-day.mp3");
-audioContext = new AudioContext();
-distortion = audioContext.createOscillator();
-source = audioContext.createMediaElementSource(audio);
+  function init(){
+    setup();
+    if(audioContext.state === "suspended"){
+      audioContext.resume();
+    }
+  }
+  
+  function setup(){
+    audio = new Audio("pornograffiti_the-day.mp3");
+    audioContext = audioContext || new AudioContext();
+    analyser = audioContext.createAnalyser();
+    source = audioContext.createMediaElementSource(audio)
+  }
+  
+  document.getElementsByName("player-container")[0].addEventListener("click", init());
 
-function handlePlay(){
-  audio.play();
+  function handlePlay() {
+    audio.play();
+  }
+  function handlePause() {
+    audio.pause();
+  }
+
+  console.log(source)
+
+  document.getElementsByName("play-button")[0].addEventListener("click", handlePlay)
+  document.getElementsByName("pause-button")[0].addEventListener("click", handlePause)
 }
-
-function handlePause(){
-  audio.pause();
-}
-
-analyser = audioContext.createAnalyser();
-
-source.connect(analyser);
-analyser.connect(audioContext.destination);

@@ -8,16 +8,17 @@
   <link rel="stylesheet" type="text/css" href="index.css">
   <script type="application/javascript" src="app.js"></script>
 </head>
-<body>
-  <div class="player-container">
-    <button class="player-play" onclick="handlePlay()">play</button>
-    <button class="player-stop" onclick="handlePause()">stop</button>
-    <audio id="player">
+<body name="init">
+  <div name="player-container">
+    <div name="play-button">play</div>
+    <div name="pause-button">pause</div>
+    <!-- <audio id="player">
       <source src="pornograffiti_the-day.mp3">
-    </audio>
+    </audio> -->
   </div>
   <div class="visualizer">
     <canvas id="canvas"></canvas>
+    <canvas id="canvas-bar"></canvas>
   </div>
   <div class="prof-links">
     <ul>
