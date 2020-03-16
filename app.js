@@ -6,11 +6,7 @@ window.onload = function(){
       canvasCtx,
       buffer,
       dataArray,
-      sliceWidth,
-      source,
-      velocity,
-      x,
-      y;
+      source;
 
   function init(){
     audioSetup();
@@ -18,10 +14,9 @@ window.onload = function(){
     dataSetup();
     audio.volume = .3
   }
-
   
   function audioSetup(){
-    audio = new Audio("pornograffiti_the-day.mp3")
+    audio = new Audio("aeriths_theme.mp3")
     audioCtx = audioCtx || new AudioContext();
     analyser = analyser || audioCtx.createAnalyser();
     source = audioCtx.createMediaElementSource(audio);
@@ -32,6 +27,8 @@ window.onload = function(){
   function canvasSetup(){
     canvas = document.getElementById("canvas");
     canvasCtx = canvas.getContext("2d");
+    canvas.width = 750;
+    canvas.height = 750;
   }
   
   function dataSetup(){
@@ -42,6 +39,7 @@ window.onload = function(){
   // player functionality
   function handlePlay(){
     audio.play();
+    visualizer();
   }
 
   function handlePause(){
@@ -59,52 +57,60 @@ window.onload = function(){
       audio.volume -= .1;
     }
   }
-
-  // event listeners
-  document.getElementsByClassName("player-container")[0].addEventListener("click", init());
-
-  document.getElementsByClassName("play-btn")[0].addEventListener("click", handlePlay);
-
-  document.getElementsByClassName("pause-btn")[0].addEventListener("click", handlePause);
-
-  document.getElementsByClassName("vol-up-btn")[0].addEventListener("click", volumeUp);
-
-  document.getElementsByClassName("vol-down-btn")[0].addEventListener("click", volumeDown);
-
+  
   function visualizer(){
-    requestAnimationFrame(visualizer);
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
     analyser.getByteTimeDomainData(dataArray);
-    canvas.width = 750;
-    canvas.height = 750;
+    // x = 0;
+    for(var i = 0; i < dataArray.length; i++){
+      var point = dataArray[i];
+      var randX = Math.floor(Math.random() * 750) + 1;
+      var randY = Math.floor(Math.random() * 750) + 1;
+      var key = i % 2 === 0 ? 2 : i % 3 === 0 ? 3 : i % 4 === 0 ? 4 : i % 5 === 0 ? 5 : i % 6 === 0 ? 6 : i % 7 === 0 ? 7 : i % 8 === 0 ? 8 : i % 9 === 0 ? 9 : false;
 
-    canvasCtx.fillStyle = "#e8b923";
-    canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-    canvasCtx.lineWidth = 1;
-    canvasCtx.strokeStyle = "black";
-    canvasCtx.beginPath();
-
-    canvasCtx.arc(canvas.width/2, canvas.height/2, 150, 0, 2 * Math.PI);
-    canvasCtx.stroke();
-    
-    sliceWidth = canvas.width * 1.0 / buffer;
-    x = 0;
-    
-    for(var i = 0; i < buffer; i++){
-      velocity = dataArray[i] / 128.0;
-      y = velocity * canvas.height / 2;
-
-      if(i === 0){
-        canvasCtx.moveTo(x, y);
-      } else{
-        canvasCtx.lineTo(x, y)
+      switch (key) {
+        // case 2:
+        //   drawVisuals(point, i + 2, i + 4,);
+        //   break;
+        case 3:
+          drawVisuals(point, i + 3, i + 6, 120);
+          break;
+        case 4:
+          drawVisuals(point, i + 4, i + 8, 160);
+          break;
+        case 5:
+          drawVisuals(point, i + 5, i + 10, 180);
+          break;
+        case 6:
+          drawVisuals(point, i + 6, i + 10, 200);
+          break;
+        case 7:
+          drawVisuals(point, i + 7, i + 10, 210);
+          break;
+        case 8:
+          drawVisuals(point, i + 8, i + 10, 220);
+          break;
+        case 9:
+          drawVisuals(point, i + 9, i + 10, 230);
+          break;
       }
-
-      x += sliceWidth;
     }
-
-    canvasCtx.lineTo(canvas.width, canvas.height / 2);
-    canvasCtx.stroke();
+    requestAnimationFrame(visualizer);
+  }
+  
+  function drawVisuals(point, x, y, size){
+    canvasCtx.beginPath();
+    canvasCtx.arc(x, y, Math.abs(point-size), 0, Math.PI*2);
+    // canvasCtx.fill()
+    canvasCtx.stroke()
+    canvasCtx.shadowColor = "blue"
+    canvasCtx.fillStyle = "blue"
+    canvasCtx.lineWidth = 2;
   }
 
-  visualizer();
+  document.getElementsByClassName("player-container")[0].addEventListener("click", init());
+  document.getElementsByClassName("play-btn")[0].addEventListener("click", handlePlay);
+  document.getElementsByClassName("pause-btn")[0].addEventListener("click", handlePause);
+  document.getElementsByClassName("vol-up-btn")[0].addEventListener("click", volumeUp);
+  document.getElementsByClassName("vol-down-btn")[0].addEventListener("click", volumeDown);
 }
