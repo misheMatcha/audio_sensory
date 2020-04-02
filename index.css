@@ -59,6 +59,7 @@ body{
     .fas:hover{
       /* color: blue; */
       opacity: 100%;
+      color: rgba(255, 127, 80, 0.666);
     }
 
 .visualizer{

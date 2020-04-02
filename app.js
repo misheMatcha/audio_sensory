@@ -70,24 +70,25 @@ window.onload = function(){
       var canY = canvas.height/2;
       if(count <= 450){
         if(i % 2 === 0){
-          drawVisuals(freq, canX, canY, count += 20, "red", 1)
-          drawVisuals(freq, canX, canY, count += 20, "white", 1.5)
+          drawVisuals(freq + 3, canX, canY, count += 20, "blue")
+          drawVisuals(freq + 3, canX, canY, count += 20, "indigo")
+          drawVisuals(freq + 3, canX, canY, count += 20, "violet")
+          drawVisuals(freq, canX, canY, count += 20, "red")
         }
       }else{
-        drawVisuals(freq + 3, canX, canY, count += 20, "blue", 1.3)
-        drawVisuals(freq + 3, canX, canY, count += 20, "purple", 1.7)
+        drawVisuals(freq, canX, canY, count += 20, "orange")
+        drawVisuals(freq, canX, canY, count += 20, "yellow")
+        drawVisuals(freq, canX, canY, count += 20, "green")
       }
 
     }
     requestAnimationFrame(visualizer);
   }
   
-  function drawVisuals(freq, x, y, size, color, strokeSize){
+  function drawVisuals(freq, x, y, size, color){
     canvasCtx.beginPath();
     canvasCtx.arc(x, y, Math.abs(freq-size), 0, Math.PI*2);
     canvasCtx.strokeStyle = color;
-    canvasCtx.fillStyle = color;
-    // canvasCtx.fill();
     canvasCtx.lineWidth = 1;
     canvasCtx.stroke()
   }
