@@ -1,13 +1,16 @@
-body{
-  background-color: #e8b923;
+body, html{
+  /* background-color: #e8b923; */
   font-family: 'Roboto', sans-serif;
+  height: 100%;
 }
 
 .main-container{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
+  height: 90%;
+  /* overflow: hidden; */
 }
 
 .player-container{

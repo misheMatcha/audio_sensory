@@ -3,7 +3,8 @@
   justify-content: center;
   width: 100%;
   font-size: 2.5rem;
-  color: red;
+  color: white;
+  filter: drop-shadow(.35rem .35rem 0.35rem black);
 }
 
   .footer-nav ul{
@@ -15,7 +16,7 @@
   }
 
   .footer-nav-links:hover{
-    color: rgba(255, 0, 0, 0.68);
-    filter: drop-shadow(.5rem .5rem 0.5rem black);
+    color: white;
+    filter: drop-shadow(.25rem .25rem 0.25rem black);
     transition: .2s;
   }
