@@ -3,6 +3,10 @@ body, html{
   height: 100%;
 }
 
+body{
+  background-color: #e8b923;
+}
+
 .main-container{
   position: relative;
   display: flex;
@@ -44,9 +48,7 @@ body, html{
   }
 
   .visual-container{
-    /* display: flex; */
-    /* height: 75%;
-    width: 50%; */
+    display: flex;
     margin-top: 3rem;
   }
 
