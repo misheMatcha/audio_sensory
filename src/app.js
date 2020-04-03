@@ -68,19 +68,13 @@ window.onload = function(){
       freq = dataArray[i];
       var canX = canvas.width/2;
       var canY = canvas.height/2;
-      if(count <= 250){
+      // use the count to determine the number of rings
+      if(count <= 450){
         if(i % 2 === 0){
           drawVisuals(freq + 3, canX, canY, count += 10, "white")
-          // drawVisuals(freq + 3, canX, canY, count += 20, "indigo")
-          // drawVisuals(freq + 3, canX, canY, count += 20, "violet")
-          // drawVisuals(freq, canX, canY, count += 20, "red")
+          drawVisuals(freq + 3, canX, canY, count += 5, "orange")
+          drawVisuals(freq + 3, canX, canY, count += 15, "yellow")
         }
-      }else{
-        drawVisuals(freq, canX, canY, count += 10, "white")
-        // drawVisuals(freq, canX, canY, count += 20, "yellow")
-        // drawVisuals(freq, canX, canY, count += 20, "green")
-      }
-
     }
     requestAnimationFrame(visualizer);
   }
