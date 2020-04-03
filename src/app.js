@@ -75,6 +75,7 @@ window.onload = function(){
           drawVisuals(freq + 3, canX, canY, count += 5, "orange")
           drawVisuals(freq + 3, canX, canY, count += 15, "yellow")
         }
+      }
     }
     requestAnimationFrame(visualizer);
   }
