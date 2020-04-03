@@ -12,6 +12,19 @@ body, html{
   color: white;
 }
 
+.description{
+  background-color: white;
+  opacity: 50%;
+  color: red;
+  height: 8%;
+  width: 37%;
+  margin-top: 2rem;
+  filter: drop-shadow(.35rem .35rem 0.35rem black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .player-controls{
   display: flex;
   flex-direction: row;
@@ -38,6 +51,7 @@ body, html{
   }
 
     #canvas{
+      border: 1px solid blue;
       width: 100%;
       height: 100%;
     }
