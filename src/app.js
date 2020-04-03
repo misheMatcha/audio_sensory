@@ -68,12 +68,14 @@ window.onload = function(){
       freq = dataArray[i];
       var canX = canvas.width/2;
       var canY = canvas.height/2;
-      // use the count to determine the number of rings
-      if(count <= 450){
+      if(count <= 500){
         if(i % 2 === 0){
-          drawVisuals(freq + 3, canX, canY, count += 10, "white")
-          drawVisuals(freq + 3, canX, canY, count += 5, "orange")
-          drawVisuals(freq + 3, canX, canY, count += 15, "yellow")
+          drawVisuals(freq + 11, canX, canY, count += 10, "white")
+          drawVisuals(freq + 13, canX, canY, count += 15, "yellow")
+        }else{
+          drawVisuals(freq + 12, canX, canY, count += 15, "orange")
+          drawVisuals(freq + 15, canX, canY, count += 5, "black")
+
         }
       }
     }
