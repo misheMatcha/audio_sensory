@@ -8,17 +8,17 @@
 }
 
 .animated-bg.one{
-  box-shadow: 0 0 45vmax 45vmax rgb(223, 113, 82);
+  box-shadow: 0 0 45vmax 45vmax rgba(227, 94, 57, 0.776);
   animation: move1 30s linear 0s infinite, hue 10s linear 0s infinite;
 }
 
 .animated-bg.two{
-  box-shadow: 0 0 45vmax 45vmax rgb(150, 143, 228);
+  box-shadow: 0 0 45vmax 45vmax rgb(210, 228, 143);
   animation: move2 20s linear 0s infinite, hue 15s linear 0s infinite;
 }
 
 .animated-bg.three{
-  box-shadow: 0 0 45vmax 45vmax rgb(102, 222, 132);
+  box-shadow: 0 0 45vmax 45vmax rgb(150, 114, 191);
   animation: move3 25s linear 0s infinite, hue 20s linear 0s infinite;
 }
 
@@ -26,8 +26,17 @@
   0%{
     filter: hue-rotate(0deg);
   }
+  25%{
+    filter: hue-rotate(45deg);
+  }
+  50%{
+    filter: hue-rotate(90deg);
+  }
+  750%{
+    filter: hue-rotate(45deg);
+  }
   100%{
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(0deg);
   }
 }
 
