@@ -68,17 +68,17 @@ window.onload = function(){
       freq = dataArray[i];
       var canX = canvas.width/2;
       var canY = canvas.height/2;
-      if(count <= 450){
+      if(count <= 250){
         if(i % 2 === 0){
-          drawVisuals(freq + 3, canX, canY, count += 20, "blue")
-          drawVisuals(freq + 3, canX, canY, count += 20, "indigo")
-          drawVisuals(freq + 3, canX, canY, count += 20, "violet")
-          drawVisuals(freq, canX, canY, count += 20, "red")
+          drawVisuals(freq + 3, canX, canY, count += 10, "white")
+          // drawVisuals(freq + 3, canX, canY, count += 20, "indigo")
+          // drawVisuals(freq + 3, canX, canY, count += 20, "violet")
+          // drawVisuals(freq, canX, canY, count += 20, "red")
         }
       }else{
-        drawVisuals(freq, canX, canY, count += 20, "orange")
-        drawVisuals(freq, canX, canY, count += 20, "yellow")
-        drawVisuals(freq, canX, canY, count += 20, "green")
+        drawVisuals(freq, canX, canY, count += 10, "white")
+        // drawVisuals(freq, canX, canY, count += 20, "yellow")
+        // drawVisuals(freq, canX, canY, count += 20, "green")
       }
 
     }
