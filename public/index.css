@@ -44,10 +44,10 @@ body, html{
   }
 
   .visual-container{
-    display: flex;
-    /* check after fixing audio issue */
-    height: 75%;
-    width: 50%;
+    /* display: flex; */
+    /* height: 75%;
+    width: 50%; */
+    margin-top: 3rem;
   }
 
     #canvas{
