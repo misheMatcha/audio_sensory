@@ -15,7 +15,7 @@ body, html{
 .description{
   background-color: white;
   opacity: 50%;
-  color: red;
+  color: black;
   height: 8%;
   width: 37%;
   margin-top: 2rem;
@@ -44,14 +44,13 @@ body, html{
   }
 
   .visual-container{
-    border: 1px solid red;
     display: flex;
-    /* height: 85%;
-    width: 55%; */
+    /* check after fixing audio issue */
+    height: 75%;
+    width: 50%;
   }
 
     #canvas{
-      border: 1px solid blue;
       width: 100%;
       height: 100%;
     }
