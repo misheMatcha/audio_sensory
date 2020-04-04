@@ -52,11 +52,17 @@ window.onload = function(){
 
   // Player functionality
   function handlePlay(){
+    if(audioCtx.state === 'suspended'){
+      audioCtx.resume();
+    }
     audio.play();
     visualizer();
   }
 
   function handlePause(){
+    if(audioCtx.state === 'running'){
+      audioCtx.suspend();
+    }
     audio.pause();
   }
 
