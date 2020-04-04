@@ -7,7 +7,7 @@
   overflow: hidden;
 }
 
-  /* .animated-bg.one{
+  .animated-bg.one{
     box-shadow: 0 0 45vmax 45vmax rgba(227, 94, 57, 0.776);
     animation: move1 15s linear 0s infinite, hue 7s linear 0s infinite;
   }
@@ -20,7 +20,7 @@
   .animated-bg.three{
     box-shadow: 0 0 45vmax 45vmax rgb(150, 114, 191);
     animation: move3 13s linear 0s infinite, hue 9s linear 0s infinite;
-  } */
+  }
 
 @keyframes hue{
   0%{

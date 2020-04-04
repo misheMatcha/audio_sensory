@@ -90,10 +90,10 @@ window.onload = function(){
       if(count <= 500){
         if(i % 2 === 0){
           drawVisuals(freq + 11, canX, canY, count += 10, "white")
-          drawVisuals(freq + 13, canX, canY, count += 15, "yellow")
+          drawVisuals(freq + 13, canX, canY, count += 13, "yellow")
         }else{
-          drawVisuals(freq + 12, canX, canY, count += 15, "orange")
-          drawVisuals(freq + 15, canX, canY, count += 5, "black")
+          drawVisuals(freq + 12, canX, canY, count += 10, "orange")
+          drawVisuals(freq + 15, canX, canY, count += 5, "purple")
 
         }
       }
