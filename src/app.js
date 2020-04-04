@@ -1,4 +1,17 @@
 window.onload = function(){
+  // Modal - forces user gesture to create audio context
+  var modal = document.getElementById("modal-wrap");
+  var modalButton = document.getElementById("modal-button");
+  modalButton.onclick = function(){
+    modal.style.display = "none";
+  }
+  window.onclick = function(e){
+    if(e.target === modal){
+      modal.style.display = "none";
+    }
+  }
+
+  // Audio
   var analyser,
       audio,
       audioCtx,
@@ -37,7 +50,7 @@ window.onload = function(){
     dataArray = new Uint8Array(buffer);
   }
 
-  // player functionality
+  // Player functionality
   function handlePlay(){
     audio.play();
     visualizer();

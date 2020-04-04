@@ -8,6 +8,7 @@
     integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="/public/reset.css">
   <link rel="stylesheet" type="text/css" href="/public/animated_bg.css">
+  <link rel="stylesheet" type="text/css" href="/public/modal.css">
   <link rel="stylesheet" type="text/css" href="/public/index.css">
   <link rel="stylesheet" type="text/css" href="/public/footer.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
@@ -17,12 +18,22 @@
 
 <body>
   <div class="main-container">
+    <!-- Background animation -->
     <div class="animated-bg one"></div>
     <div class="animated-bg two"></div>
     <div class="animated-bg three"></div>
+    <!-- Modal -->
+    <div id="modal-wrap" class="modal">
+      <div class="modal-content">
+        <p>Welcome to audio sensory. Inspired by my affection for music and fondess for art. I hope this bridges the gap between the two.</p>
+        <p>Please enjoy.</p>
+        <button id="modal-button" class="fas fa-window-close"></button>
+      </div>
+    </div>
     <div class="description">
       <p>
-        Audio Sensory is a an audio visualizer built utilizing Web Audio API and canvas to create visuals.
+        Audio Sensory was built to accompany audio with visuals and provide an experience to the senses.<br>
+        Please use the controls below to play, pause, or control the volume.
       </p>
       <!--
         Future additions
