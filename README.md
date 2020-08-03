@@ -11,6 +11,8 @@ To [comply with web audio changes within Chrome](https://developers.google.com/w
 ### Animated background
 The background is animated using keyframes in order to accompany the frequencies with a more visual experience.
 
+![background_demo](https://user-images.githubusercontent.com/52799217/78419295-41d4e800-75f9-11ea-8d7c-e14604d4e7ea.gif)
+
 ```css
 .animated-bg{
   position: absolute;
@@ -64,11 +66,43 @@ The background is animated using keyframes in order to accompany the frequencies
 }
 ```
 
-![background_demo](https://user-images.githubusercontent.com/52799217/78419295-41d4e800-75f9-11ea-8d7c-e14604d4e7ea.gif)
-### Canvas visuals
-Once the user clicks the play button, visuals will display bouncing on the screen.
+### Visuals
+Using Web Audio API to gather the audio frequency, the data is then used with canvas to render circles for each frequency in real time.
 
 ![visual_demo](https://user-images.githubusercontent.com/52799217/78419260-f15d8a80-75f8-11ea-9be3-b3e36a5963a4.gif)
+
+```javascript
+function visualizer(){
+    canvasCtx.clearRect(0, 0, canvas.width, canvas.height)
+    analyser.getByteTimeDomainData(dataArray);
+    var count = 100;
+
+    for(var i = 0; i < dataArray.length; i++){
+      freq = dataArray[i];
+      var canX = canvas.width/2;
+      var canY = canvas.height/2;
+      if(count <= 500){
+        if(i % 2 === 0){
+          drawVisuals(freq + 11, canX, canY, count += 10, "white")
+          drawVisuals(freq + 13, canX, canY, count += 13, "yellow")
+        }else{
+          drawVisuals(freq + 12, canX, canY, count += 10, "orange")
+          drawVisuals(freq + 15, canX, canY, count += 5, "purple")
+
+        }
+      }
+    }
+    requestAnimationFrame(visualizer);
+  }
+  
+  function drawVisuals(freq, x, y, size, color){
+    canvasCtx.beginPath();
+    canvasCtx.arc(x, y, Math.abs(freq-size), 0, Math.PI*2);
+    canvasCtx.strokeStyle = color;
+    canvasCtx.lineWidth = 1;
+    canvasCtx.stroke()
+  }
+```
 
 ## Technologies
 * JavaScript
